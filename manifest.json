@@ -19,17 +19,5 @@
       "128": "collect.png"
     },
     "default_popup": "popup.html"
-  },
-  "background": {
-    "service_worker": "background.js"
-  },
-  "commands": {
-    "open-bookmark-picker": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+D",
-        "mac": "Command+Shift+D"
-      },
-      "description": "Open bookmark folder picker"
-    }
   }
 }
