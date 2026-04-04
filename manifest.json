@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Bookmark Folder Picker",
+  "version": "0.1.0",
+  "description": "Choose a bookmark folder from a full tree before saving the current page.",
+  "icons": {
+    "16": "collect.png",
+    "32": "collect.png",
+    "48": "collect.png",
+    "128": "collect.png"
+  },
+  "permissions": ["bookmarks", "tabs", "storage"],
+  "action": {
+    "default_title": "Bookmark: pick folder",
+    "default_icon": {
+      "16": "collect.png",
+      "32": "collect.png",
+      "48": "collect.png",
+      "128": "collect.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "open-bookmark-picker": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+D",
+        "mac": "Command+Shift+D"
+      },
+      "description": "Open bookmark folder picker"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>选择书签目录</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="title">保存当前页面到…</div>
+      <div class="page">
+        <div id="pageTitle" class="pageTitle"></div>
+        <div id="pageUrl" class="pageUrl"></div>
+      </div>
+    </header>
+
+    <section class="toolbar">
+      <input id="search" class="search" type="text" placeholder="搜索目录…" />
+      <button id="clearSearch" class="btn" type="button">清除</button>
+    </section>
+
+    <main class="main">
+      <div id="tree" class="tree" role="tree" aria-label="书签目录树"></div>
+    </main>
+
+    <footer class="footer">
+      <div id="status" class="status" aria-live="polite"></div>
+      <div class="actions">
+        <button id="newFolder" class="btn" type="button">新建文件夹</button>
+        <button id="deleteFolder" class="btn" type="button" disabled>删除文件夹</button>
+        <button id="save" class="btn primary" type="button" disabled>保存</button>
+      </div>
+    </footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
