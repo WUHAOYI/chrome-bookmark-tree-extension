@@ -49,12 +49,27 @@ body {
   margin-bottom: 8px;
 }
 
-.pageTitle {
+.fieldLabel {
+  display: block;
   font-size: 12px;
   font-weight: 600;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-bottom: 6px;
+}
+
+.titleInput {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  background: transparent;
+  color: var(--fg);
+  outline: none;
+}
+
+.titleInput:focus {
+  border-color: rgba(26, 115, 232, 0.7);
 }
 
 .pageUrl {

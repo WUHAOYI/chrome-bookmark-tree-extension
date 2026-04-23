@@ -1,4 +1,4 @@
-const pageTitleEl = document.getElementById("pageTitle")
+const bookmarkTitleEl = document.getElementById("bookmarkTitle")
 const pageUrlEl = document.getElementById("pageUrl")
 const treeEl = document.getElementById("tree")
 const searchEl = document.getElementById("search")
@@ -222,7 +222,8 @@ async function saveBookmark() {
   }
 
   const parentId = state.selectedFolderId || "1"
-  const title = state.tab.title || state.tab.url
+  const customTitle = bookmarkTitleEl.value.trim()
+  const title = customTitle || state.tab.title || state.tab.url
   const url = state.tab.url
 
   saveEl.disabled = true
@@ -305,7 +306,7 @@ async function init() {
   setStatus("加载中…")
 
   state.tab = await getActiveTab()
-  pageTitleEl.textContent = state.tab?.title || ""
+  bookmarkTitleEl.value = state.tab?.title || ""
   pageUrlEl.textContent = state.tab?.url || ""
 
   state.tree = await chrome.bookmarks.getTree()
@@ -328,6 +329,12 @@ async function init() {
   saveEl.addEventListener("click", saveBookmark)
   newFolderEl.addEventListener("click", createFolder)
   deleteFolderEl.addEventListener("click", deleteFolder)
+  bookmarkTitleEl.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !saveEl.disabled) {
+      e.preventDefault()
+      saveBookmark()
+    }
+  })
 
   searchEl.addEventListener("input", () => applySearch(searchEl.value))
   clearSearchEl.addEventListener("click", () => {
@@ -337,6 +344,8 @@ async function init() {
   })
 
   saveEl.disabled = !state.selectedFolderId || !state.tab?.url
+  bookmarkTitleEl.focus()
+  bookmarkTitleEl.select()
   setStatus(state.selectedFolderId ? `已选择：${state.nameById.get(state.selectedFolderId) || ""}` : "")
 }
 
