@@ -329,12 +329,6 @@ async function init() {
   saveEl.addEventListener("click", saveBookmark)
   newFolderEl.addEventListener("click", createFolder)
   deleteFolderEl.addEventListener("click", deleteFolder)
-  bookmarkTitleEl.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" && !saveEl.disabled) {
-      e.preventDefault()
-      saveBookmark()
-    }
-  })
 
   searchEl.addEventListener("input", () => applySearch(searchEl.value))
   clearSearchEl.addEventListener("click", () => {
